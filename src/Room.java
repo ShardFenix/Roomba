@@ -38,12 +38,25 @@ public class Room {
 	}
 	
 	public Tile get(int x, int y) {
+		if (tiles.length<=y && y<0) {
+			return null;
+		}
+		if (tiles[y].length<=x || x<0) {
+			return null;
+		}
 		return tiles[y][x];
 	}
 	
 	public Tile[] getSurroundingTiles() {
 		Tile[] result = new Tile[10];
-		
+		result[7] = get(roombaLocation.x-1,roombaLocation.y-1);
+		result[8] = get(roombaLocation.x,roombaLocation.y-1);
+		result[9] = get(roombaLocation.x+1,roombaLocation.y-1);
+		result[4] = get(roombaLocation.x-1,roombaLocation.y);
+		result[6] = get(roombaLocation.x+1,roombaLocation.y);
+		result[1] = get(roombaLocation.x-1,roombaLocation.y+1);
+		result[2] = get(roombaLocation.x,roombaLocation.y+1);
+		result[3] = get(roombaLocation.x+1,roombaLocation.y+1);
 		return result;
 	}
 	

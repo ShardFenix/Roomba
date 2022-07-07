@@ -28,4 +28,8 @@ public class Tile {
 			type = CLEAN;
 		}
 	}
+	
+	public String toString() {
+		return ""+type;
+	}
 }
